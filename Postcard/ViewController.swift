@@ -4,12 +4,14 @@
 //
 //  Created by Dean Brown on 7/16/15.
 //  Copyright (c) 2015 Parker Brown. All rights reserved.
-//  Adding Code
+
 
 import UIKit
 
 class ViewController: UIViewController {
 
+   
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var enterMessageTextField: UITextField!
@@ -29,10 +31,17 @@ class ViewController: UIViewController {
     }
 
     @IBAction func sendMailButtonPressed(sender: AnyObject) {
+   
+    nameLabel.hidden = false
+    nameLabel.text = enterNameTextField.text
+    nameLabel.textColor = UIColor.blueColor()
+        
     messageLabel.hidden = false
     messageLabel.text = enterMessageTextField.text
     messageLabel.textColor = UIColor.redColor()
-        
+
+    enterNameTextField.text = ""
+    enterNameTextField.resignFirstResponder()
         
     enterMessageTextField.text = ""
     enterMessageTextField.resignFirstResponder()
